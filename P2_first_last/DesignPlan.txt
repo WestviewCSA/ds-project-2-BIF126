@@ -6,11 +6,66 @@ After reading the specs, start populating
 a list of things you think you might have to
 do to finish this project.
 
-1) read the specs - understand the problem
-2) Understand map-based input files
-3) Create test case maps to test out using the program
-4) Create Singly Linked List for Queues
-5) Create inputs and outputs and a readMap class so the class can know
-   what kind of level user is on
-6) Report the runtime
-7) Create a 3D array
+Design Plan: 
+	1. Problem Understanding & Requirements Analysis
+	
+		1) read the specs - understand the problem
+		2) Understand map-based input files
+		3) Implement a stack and queue data structure
+		4) Create test case maps to test out using the program
+		5) Utilize classes and 2D/3D
+		6) Design an algorithim for navigation through the maze
+		7) Use file IO for input/output operations
+		8) Implement a solution in Java
+		9) Create Singly Linked List for Queues
+		10) Create inputs and outputs and a readMap class so the class can know
+            what kind of level user is on
+		11) Report the runtime
+	
+	2. High-Level Approach
+		
+		1) Use a 2D array where cells represent walls, paths,
+		   and main target (coin) 
+		   - . --> walkable path
+		   - @ --> Wall
+		   - $ --> Coin (main target)
+		   - W --> Player
+		
+		2) Navigation Mechanism
+		   - Use a stack or queue to explore possible paths
+		   - Player should avoid obstacles and backtrack if needed
+		   - Implement movement
+		   
+		3) Classes & Data Structure
+		   - readMap --> Handles maze creation and visualization
+		   - player --> Stores position of player and movement logic
+		   - Stack & Queue --> Implements pathfinding
+	
+	3. Detailed Implementation Plan
+		
+		1)Read maze structure from test cases (TEST01 - TEST10.txt)
+		2) Store it in a 2D array(char[][] mazes)
+		3) Display mazes in console
+		4) Allow user to choose algorithm at runtime
+		5) Push starting position onto stack/queue
+		6) Explore available moves (up, down, left, right)
+		7) If move is valid, push/enqueue it
+		8) Backtrack if needed using the stack
+		9) Implement file IO to load custom mazes
+		10) Develop test cases to verify pathfinding logic
+		11) Add an interactive console UI to visualize progress
+	
+	4. Test Cases
+		
+		1) Valid path to the goal: Ensure player can reach coin
+		2) Handle cases where Wolverine is trapped
+		3) Support various maze configurations
+		4) Measure execution time for stacks/queues
+		
+	5. Expected Deliverables
+	
+		1) Implementing classes and algorithms
+		2) TEST01.txt-TEST10.txt
+		3) JUnit test cases to validate functionality
+		4) Explanation of design choices and execution	
+ 		
