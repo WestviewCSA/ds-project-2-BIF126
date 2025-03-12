@@ -9,4 +9,8 @@ do to finish this project.
 1) read the specs - understand the problem
 2) Understand map-based input files
 3) Create test case maps to test out using the program
-4) 
+4) Create Singly Linked List for Queues
+5) Create inputs and outputs and a readMap class so the class can know
+   what kind of level user is on
+6) Report the runtime
+7) Create a 3D array
