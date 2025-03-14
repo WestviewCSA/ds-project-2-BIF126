@@ -22,7 +22,11 @@ public class p2 {
 		    int numCols = scanner.nextInt();
 		    int numRooms = scanner.nextInt();
 		    
+		    Tile[][][] tiles = new Tile[numRows][numCols][numRooms];
+		    
 		    int rowIndex = 0;
+		    int colsIndex = 0;
+		    int roomsIndex = 0;
 		    
 		    //process the map!
 		    while(scanner.hasNextLine()) {
@@ -44,7 +48,21 @@ public class p2 {
 		    // handle exception
 			System.out.println(e);
 		}
-		
+				
+	}
+	
+	public static Tile findStart(Tile[][][] tiles2) {
+		Tile startingPosition = null;
+		for(int i = 0; i < tiles2.length; i++) {
+			for(int j = 0; j < tiles2[i].length; j++) {
+				for(int k = 0; k < tiles2[i][j].length; k++) {
+					if(tiles2[i][j][k].equals("W")) {
+						startingPosition = tiles2[i][j][k];
+					}
+				}
+			}
+		}
+		return startingPosition;
 	}
 	
 }
