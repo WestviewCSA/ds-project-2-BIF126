@@ -1,14 +1,15 @@
 
 public class Tile {
 	
-	private int row, col;
+	private int row, col, room;
 	private char type;
 	
-	public Tile(int row, int col, char type) {
+	public Tile(int row, int col, char type, int room) {
 		super();
 		this.row = row;
 		this.col = col;
 		this.type = type;
+		this.room = room;
 	}
 	
 	public int getRow() {
@@ -30,6 +31,8 @@ public class Tile {
 		this.type = type;
 	}
 	
-	
+	public int getRoom() {
+		return room;
+	}
 	
 }

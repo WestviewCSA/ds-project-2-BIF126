@@ -1,9 +1,15 @@
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Queue;
+import java.util.LinkedList;
+
 
 public class p2 {
 
+	static Queue<Tile> queue = new LinkedList();
+	static Queue<Tile> visit = new LinkedList();
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("p2");
@@ -36,7 +42,7 @@ public class p2 {
 		    	if(row.length()>0) {
 		    		for(int i = 0; i < numCols && i < row.length(); i++) {
 		    			char el = row.charAt(i);
-		    			Tile obj = new Tile(rowIndex, i, el);
+		    			Tile obj = new Tile(rowIndex, i, el, roomsIndex);
 		    			
 		    		}
 		    	}
@@ -65,4 +71,41 @@ public class p2 {
 		return startingPosition;
 	}
 	
+	
+	public static void queueStartingPos(Tile[][][] dotTiles) {
+		
+		Tile thePos = findStart(dotTiles);
+		queue.add(findStart(dotTiles));
+		
+	}
+	
+	public static void dequeueStartingPos(Tile[][][] dotTiles) {
+		Tile curr = queue.poll();
+		visit.add(curr);
+		
+		for(int i = curr.getRow(); i > 0; i++) {
+			if(dotTiles[curr.getRoom()][i][curr.getCol()].equals('.')) {
+				queue.add(dotTiles[curr.getRoom()][i][curr.getCol()]);
+			}
+		}
+		
+		for(int i = curr.getRow(); i < dotTiles.length; i++) {
+			if(dotTiles[curr.getRoom()][i][curr.getCol()].equals('.')) {
+				queue.add(dotTiles[curr.getRoom()][i][curr.getCol()]);
+			}
+		}
+		
+		for(int i = curr.getCol(); i < dotTiles[curr.getRow()].length; i++) {
+			if(dotTiles[curr.getRoom()][i][curr.getCol()].equals('.')) {
+				queue.add(dotTiles[curr.getRoom()][curr.getRow()][i]);
+			}
+		}
+		
+		for(int i = curr.getCol(); i > 0; i--) {
+			if(dotTiles[curr.getRoom()][i][curr.getCol()].equals('.')) {
+				queue.add(dotTiles[curr.getRoom()][curr.getRow()][i]);
+			}
+		}
+		
+	}
 }
